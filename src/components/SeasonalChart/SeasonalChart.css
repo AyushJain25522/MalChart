@@ -1,0 +1,13 @@
+.seasonal-chart {
+  padding: 1rem;
+  max-width: 1720px;
+  margin: 170px auto 0;
+  width: 100%;
+}
+
+.anime-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}

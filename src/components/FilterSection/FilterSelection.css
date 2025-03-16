@@ -1,0 +1,31 @@
+.filter-section {
+  background-color: #2b2d42;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem;
+}
+
+.filter-group {
+  margin-bottom: 1.5rem;
+}
+
+.filter-group h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.filter-item {
+  display: block;
+  margin: 0.5rem 0;
+  color: #9999a9;
+  cursor: pointer;
+}
+
+.filter-item input {
+  margin-right: 0.5rem;
+}
+
+.filter-item:hover {
+  color: #fff;
+}
