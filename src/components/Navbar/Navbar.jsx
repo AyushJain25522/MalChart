@@ -6,28 +6,32 @@ const Navbar = ({ onSeasonChange }) => {
   const currentSeason = getCurrentSeason();
   const currentYear = getCurrentYear();
 
+  const handleSeasonClick = (season) => {
+    if (onSeasonChange) {
+      onSeasonChange(season, currentYear);
+    }
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-content">
         <div className="navbar-brand">MALCharts</div>
         
         <div className="seasons">
-          <a href="#" className={`season ${currentSeason === 'winter' ? 'active' : ''}`}>
-            <div className="season-name">Winter</div>
-            <div className="season-year">{currentYear}</div>
-          </a>
-          <a href="#" className={`season ${currentSeason === 'spring' ? 'active' : ''}`}>
-            <div className="season-name">Spring</div>
-            <div className="season-year">{currentYear}</div>
-          </a>
-          <a href="#" className={`season ${currentSeason === 'summer' ? 'active' : ''}`}>
-            <div className="season-name">Summer</div>
-            <div className="season-year">{currentYear}</div>
-          </a>
-          <a href="#" className={`season ${currentSeason === 'fall' ? 'active' : ''}`}>
-            <div className="season-name">Fall</div>
-            <div className="season-year">{currentYear}</div>
-          </a>
+          {['winter', 'spring', 'summer', 'fall'].map(season => (
+            <a 
+              key={season}
+              href="#" 
+              className={`season ${currentSeason === season ? 'active' : ''}`}
+              onClick={(e) => {
+                e.preventDefault();
+                handleSeasonClick(season);
+              }}
+            >
+              <div className="season-name">{season.charAt(0).toUpperCase() + season.slice(1)}</div>
+              <div className="season-year">{currentYear}</div>
+            </a>
+          ))}
         </div>
 
         <div className="nav-actions">

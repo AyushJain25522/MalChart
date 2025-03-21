@@ -28,28 +28,33 @@
 .seasons {
   display: flex;
   gap: 1rem;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
 }
 
 .season {
   text-decoration: none;
-  color: var(--color-text-bright);
-  padding: 0.4rem 1rem;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
+  color: var(--color-text-light);
   text-align: center;
-  transition: all 0.2s ease;
 }
 
-.season:hover {
-  background-color: rgba(61, 180, 242, 0.1);
-  color: var(--color-blue);
+.season-name {
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.season-year {
+  font-size: 0.8rem;
+  opacity: 0.8;
 }
 
 .season.active {
-  background-color: rgba(61, 180, 242, 0.1);
-  color: var(--color-blue);
+  background: var(--color-blue);
+  color: var(--color-text-bright);
+}
+
+.season:hover:not(.active) {
+  background: var(--color-foreground);
 }
 
 .season-name {

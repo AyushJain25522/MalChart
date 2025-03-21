@@ -23,26 +23,62 @@ const AnimeCard = ({ anime }) => {
           </div>
         </div>
         <div className="anime-details">
-          <div className="title-container">
+          <div className="title-section">
             <h3 onClick={handleTitleClick} className="anime-title">{anime.title_english || anime.title}</h3>
             {anime.title_english && anime.title_english !== anime.title && (
               <h4 className="anime-title-japanese">{anime.title}</h4>
             )}
           </div>
           
-          <div className="anime-stats">
-            {formatDate(anime.aired?.from)} • {anime.episodes || '?'} eps
-          </div>
+          <div className="scrollable-content">
+            <div className="anime-stats">
+              {formatDate(anime.aired?.from)} • {anime.episodes || '?'} eps
+            </div>
 
-          <div className="anime-genres">
-            {anime.genres?.map((genre, index) => (
-              <span key={genre.mal_id} className="genre-tag">
-                {genre.name}
-              </span>
-            ))}
-          </div>
+            <div className="anime-genres">
+              <span className="genre-label">Genre:</span>
+              {anime.genres?.map((genre, index) => (
+                <span key={genre.mal_id} className="genre-tag">{genre.name}</span>
+              ))}
+            </div>
 
-          <p className="synopsis">{anime.synopsis}</p>
+            <div className="anime-metadata">
+              {anime.studios?.length > 0 && (
+                <div className="metadata-item">
+                  <span className="metadata-label">Studio:</span>
+                  {anime.studios.map(studio => studio.name).join(', ')}
+                </div>
+              )}
+              
+              {anime.source && (
+                <div className="metadata-item">
+                  <span className="metadata-label">Source:</span>
+                  {anime.source}
+                </div>
+              )}
+            </div>
+
+            <div className="synopsis">
+              <span className="synopsis-label">Synopsis:</span>
+              {anime.synopsis}
+            </div>
+
+            <div className="anime-metadata">
+              {anime.themes?.length > 0 && (
+                <div className="metadata-item">
+                  <span className="metadata-label">Theme:</span>
+                  {anime.themes.map(theme => theme.name).join(', ')}
+                </div>
+              )}
+
+              {anime.demographics?.length > 0 && (
+                <div className="metadata-item">
+                  <span className="metadata-label">Demographic:</span>
+                  {anime.demographics.map(demo => demo.name).join(', ')}
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>

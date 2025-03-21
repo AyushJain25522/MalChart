@@ -1,0 +1,23 @@
+.categorized-list {
+  width: 100%;
+  padding: 1rem;
+}
+
+.category-section {
+  margin-bottom: 2rem;
+}
+
+.category-title {
+  font-size: 1.2rem;
+  color: var(--color-text-bright);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.anime-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
